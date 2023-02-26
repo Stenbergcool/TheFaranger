@@ -1,115 +1,87 @@
-import Head from 'next/head';
-import styles from '../styles/Home.module.css';
+import fs from 'fs';
+import path from 'path';
+import matter from 'gray-matter';
+import Link from 'next/link';
 
-export default function Home() {
+export default function Home({posts, articles}) {
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+    <div className="w-full max-w-7xl">
+      <div className="flex border-b-2 border-slate-800">
+        {posts.map((post, index) => {
+          return (
+          <div className="" key={index}>
+            <Link href={post.frontmatter.category + '/' + post.slug}>
+            <img src={post.frontmatter.image} alt="Article Image" className="p-1"/>
+            <h3 className="text-l font-medium underline p-1">{post.frontmatter.title}</h3>
+            </Link>
+          </div>
+          )
+        })}
+      </div>
+      <div className="grid grid-cols-4">
+      <div className="p-4 col-span-3">
+      {articles.map((post, index) => {
+          return (
+          <div className="border-b-2 border-slate-800">
+            <Link href={'/articles/' + post.slug}>
+            <h3 className="text-xl p-1">{post.frontmatter.title}</h3>
+            </Link>
+            <p className="text-sm p-1">{post.frontmatter.date}</p>
+            <div className="flex" key={index}>
+              <img src={post.frontmatter.image} alt="Article Image" className="p-1" height="200" width="200"/>
+              <div className="h-24">
+                <p className="line-clamp-3">{post.content}</p>
+              </div>
+            </div>
+          </div>
+          )
+        })}
+      </div>
+        <div>
 
-      <main>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing <code>pages/index.js</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
         </div>
-      </main>
-
-      <footer>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel" className={styles.logo} />
-        </a>
-      </footer>
-
-      <style jsx>{`
-        main {
-          padding: 5rem 0;
-          flex: 1;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-        }
-        footer {
-          width: 100%;
-          height: 100px;
-          border-top: 1px solid #eaeaea;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-        footer img {
-          margin-left: 0.5rem;
-        }
-        footer a {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          text-decoration: none;
-          color: inherit;
-        }
-        code {
-          background: #fafafa;
-          border-radius: 5px;
-          padding: 0.75rem;
-          font-size: 1.1rem;
-          font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
-            DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
-        }
-      `}</style>
-
-      <style jsx global>{`
-        html,
-        body {
-          padding: 0;
-          margin: 0;
-          font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-            Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
-            sans-serif;
-        }
-        * {
-          box-sizing: border-box;
-        }
-      `}</style>
+      </div>
     </div>
   )
+}
+
+export async function getStaticProps(){
+  const files = fs.readdirSync(path.join('content/startpage'))
+  const articleFiles = fs.readdirSync(path.join('content/articles'))
+
+  const posts = files.map((filename) => {
+
+    const slug = filename.replace('.md', '')
+
+    const markdownWithMeta = fs.readFileSync(
+      path.join('content/startpage', filename),
+      'utf-8'
+    )
+    const { data: frontmatter } = matter(markdownWithMeta)
+    return {
+      slug,
+      frontmatter
+    }
+  })
+  const articles = articleFiles.map((filename) => {
+
+    const slug = filename.replace('.md', '')
+
+    const markdownWithMeta = fs.readFileSync(
+      path.join('content/articles', filename),
+      'utf-8'
+    )
+    const { data: frontmatter, content } = matter(markdownWithMeta)
+    return {
+      slug,
+      frontmatter,
+      content
+    }
+  })
+  return {
+    props: {
+      posts: posts,
+      articles: articles
+    }
+  }
 }
