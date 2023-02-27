@@ -8,6 +8,7 @@ export default function Layout({ children }) {
         <>
         <Head>
             <title>Thailand Guide</title>
+            <meta name="description" content="thailand guide"></meta>
         </Head>
         <Hero/>
         <Navbar/>
