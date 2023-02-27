@@ -3,10 +3,12 @@ title: 'Chiang mai guide'
 date: '2023-02-25'
 category: 'city'
 city: 'chiangmai'
-image: 'https://content.r9cdn.net/rimg/dimg/86/2e/2d3ef5c0-city-26166-153e6c3d8ab.jpg?width=1200&height=630&xhint=1513&yhint=1022&crop=true'
+image: '/chiangmai.jpg'
 ---
 
 # Chiang mai
+
+![Picture of Chiang mai {{ w: 600, h: 300 }}](/chiangmai.jpg)
 
 Chiang Mai is like a serene painting, crafted with delicate brushstrokes of ancient temples, misty mountains, and bustling markets. The city is a harmonious blend of modernity and tradition, where old wooden houses and shiny skyscrapers coexist peacefully.
 

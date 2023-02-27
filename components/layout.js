@@ -12,8 +12,10 @@ export default function Layout({ children }) {
         </Head>
         <Hero/>
         <Navbar/>
-        <main className="flex justify-center min-h-screen pt-10">
+        <main className="flex justify-center min-h-screen">
+            <div className=" w-full max-w-7xl">
         {children}
+        </div>
         </main>
         <Footer/>
         </>

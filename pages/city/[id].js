@@ -13,7 +13,7 @@ export default function article( {frontmatter, id, content, paths}) {
         <meta name="description" content={frontmatter.meta}></meta>
       </Head>
       <div className="md:grid md:grid-cols-4 w-full max-w-7xl">
-        <article className="prose prose-stone col-span-3 pl-6" dangerouslySetInnerHTML={{ __html: marked(content)}}>
+        <article className="prose prose-stone col-span-3 min-w-full pl-6 pr-6 md:pr-0" dangerouslySetInnerHTML={{ __html: marked(content)}}>
 
         </article>
         <div>

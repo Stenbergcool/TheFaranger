@@ -3,10 +3,12 @@ title: 'Hua hin guide'
 date: '2023-02-25'
 category: 'city'
 city: 'huahin'
-image: 'https://content.r9cdn.net/rimg/dimg/86/2e/2d3ef5c0-city-26166-153e6c3d8ab.jpg?width=1200&height=630&xhint=1513&yhint=1022&crop=true'
+image: '/huahin.jpg'
 ---
 
 # Hua Hin
+
+![Picture of Hua Hin {{ w: 600, h: 300 }}](/huahin.jpg)
 
 Hua Hin is a coastal paradise that exudes an air of timeless elegance, a place where pristine beaches meet lush green forests and rolling hills. It's a city that is steeped in history and tradition, where the echoes of the past mingle with the sights and sounds of the present.
 

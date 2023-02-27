@@ -1,5 +1,5 @@
 ---
-title: 'top 5 hotels in bangkok'
+title: 'Top 5 hotels in bangkok'
 date: '2023-02-25'
 city: 'bangkok'
 category: 'city'

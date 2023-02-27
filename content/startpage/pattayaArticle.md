@@ -3,10 +3,12 @@ title: 'Pattaya guide'
 date: '2023-02-25'
 category: 'city'
 city: 'pattaya'
-image: 'https://content.r9cdn.net/rimg/dimg/86/2e/2d3ef5c0-city-26166-153e6c3d8ab.jpg?width=1200&height=630&xhint=1513&yhint=1022&crop=true'
+image: '/pattaya.jpg'
 ---
 
 # Pattaya
+
+![Picture of Pattaya {{ w: 600, h: 300 }}](/pattaya.jpg)
 
 Pattaya is a coastal city that is both charming and chaotic, a place where glittering high-rise buildings overlook golden sandy beaches and crystal-clear waters. It's a city that offers a little bit of everything, from wild nightlife and bustling street markets to serene temples and tranquil parks.
 

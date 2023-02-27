@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 import Link from 'next/link';
+import Image from 'next/image'
 
 export default function Home({posts, articles}) {
 
@@ -24,13 +25,13 @@ export default function Home({posts, articles}) {
     }
   return (
     <div className="w-full max-w-7xl">
-      <div className="md:flex border-b-2 border-slate-800">
+      <div className="md:flex pt-2">
         {posts.map((post, index) => {
           return (
           <div className="" key={index}>
             <Link href={post.frontmatter.category + '/' + post.slug}>
-                <img src={post.frontmatter.image} alt="Article Image" className="p-1 hidden guide-image"/>
-                <h3 className="text-l font-medium underline p-1">{post.frontmatter.title}</h3>
+                <Image src={post.frontmatter.image} width={300} height={100} loading="eager" alt="Article Image" className="pb-1 px-1 guide-image max-h-32" />
+                <h3 className="text-l font-bold underline p-1">{post.frontmatter.title}</h3>
             </Link>
           </div>
           )
@@ -40,9 +41,9 @@ export default function Home({posts, articles}) {
       <div className="p-4 col-span-3">
       {articles.map((post, index) => {
           return (
-          <div key={index} className="border-b-2 border-slate-800">
+          <div key={index} className="">
             <Link href={'/articles/' + post.slug}>
-            <h3 className="text-xl p-1">{post.frontmatter.title}</h3>
+            <h3 className="text-2xl font-extrabold p-1 hover:underline">{post.frontmatter.title}</h3>
             </Link>
             <p className="text-sm p-1">{post.frontmatter.date}</p>
             <div className="flex" key={index}>

@@ -8,8 +8,14 @@ image: 'https://content.r9cdn.net/rimg/dimg/86/2e/2d3ef5c0-city-26166-153e6c3d8a
 
 # Visas
 
-Bangkok is the capital and most important city in Thailand, with a population of over 10 million people. Thanks to its growing economic development and massive popularity as an international tourist destination, it has become one of Southeast Asia's most influential and modern cities.
+## Tourist Visa
 
-Located on the banks of the country's main river, Chao Phraya, the city relied on a wide system of canals - khlong in Thai - for transport between the 16th and 19th centuries, leading to its nickname as the Venice of the East.
+## Educational Visa
 
-On the subject of names, Bangkok's full Thai name has the Guinness World Record for "longest place name"! But at 168 letters of archaic language, most locals call it the much simpler Krung Thep, which translates roughly as "City of Angels".
+The Thailand Education Visa is granted to non-native candidates who desire to pursue academic studies at a university, participate in seminars, training sessions, or internships in Thailand. The visa holder is authorized to remain in Thailand for up to 90 days, and the validity can be extended for up to one year from the initial entry date into the country.
+
+## Business Visa
+
+## Educational Visa
+
+## Educational Visa
