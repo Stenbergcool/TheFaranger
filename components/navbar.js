@@ -1,16 +1,25 @@
 import Link from 'next/link';
 import { Menu } from '@headlessui/react'
+import Image from 'next/image'
 
 export default function Navbar(){
+    function menuDropper() {
+        let menu = document.getElementById("menu")
+        if(menu.classList.contains("hidden")) {
+            menu.classList.remove("hidden")
+        } else {
+            menu.classList.add("hidden")
+        }
+    }
   return (
     <div className="flex justify-center">
-    <nav className="flex items-center justify-between flex-wrap w-full bg-white p-6 max-w-7xl border-b-2 border-slate-800">
-        <div className="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
-            <div className="text-sm lg:flex-grow">
-            <Link href="/" className="block mt-4 lg:inline-block lg:mt-0 text-slate-800 mr-4 text-xl font-medium">
+    <nav className="flex items-center justify-between flex-wrap w-full bg-white p-6 lg:max-w-7xl border-b-2 border-slate-800">
+        <div className="lg:w-full justify-between lg:flex-grow lg:items-center md:z-auto md:static">
+            <Link href="/" className=" mt-3 lg:inline-block lg:mt-0 text-slate-800 mr-4 text-2xl font-bold lg:float-left">
                 The Faranger
             </Link>
-            <Menu as="div" className="relative inline-block text-left">
+            <div className="text-sm flex-grow" id="menu">
+            <Menu as="div" className="relative lg:inline-block lg:text-left text-right">
                 <Menu.Button className="block mt-4 lg:inline-block lg:mt-0 text-slate-800 mr-4 text-xl"
                 >
                 Places
@@ -45,7 +54,7 @@ export default function Navbar(){
                 </div>
                 </Menu.Items>
             </Menu>
-            <Menu as="div" className="relative inline-block text-left">
+            <Menu as="div" className="relative lg:inline-block text-left">
                 <Menu.Button className="block mt-4 lg:inline-block lg:mt-0 text-slate-800 mr-4 text-xl"
                 >
                 Travel tips
@@ -73,14 +82,14 @@ export default function Navbar(){
             <Link href="/food/overview" className="block mt-4 lg:inline-block lg:mt-0 text-slate-800 mr-4 text-xl">
                 Food
             </Link>
-            <Link href="/dating/overview" className="block mt-4 lg:inline-block lg:mt-0 text-slate-800 mr-4 text-xl">
-                Dating
-            </Link>
-            <Link href="/info/contact" className="block mt-4 lg:inline-block lg:mt-0 text-slate-800 mr-4 text-xl float-right">
+            <Link href="/info/contact" className="block mt-4 lg:inline-block lg:mt-0 text-slate-800 mr-4 text-xl lg:float-right">
                 Contact
             </Link>
             </div>
         </div>
+        <span className="inline-block cursor-pointer float-right lg:hidden right-4 absolute" onClick={(e) => {menuDropper()}}>
+                <Image src="/menu.png" alt="hamburger menu" width="60" height="60" className="rounded-sm"/>
+        </span>
     </nav>
     </div>
   );
