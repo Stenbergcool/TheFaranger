@@ -1,5 +1,5 @@
 ---
-title: 'top 10 resturants in bangkok'
+title: 'Top 10 resturants in bangkok'
 date: '2023-02-25'
 city: 'bangkok'
 category: 'nightlife'

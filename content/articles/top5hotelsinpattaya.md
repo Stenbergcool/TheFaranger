@@ -1,5 +1,5 @@
 ---
-title: 'top 5 hotels in pattaya'
+title: 'Top 5 hotels in pattaya'
 date: '2023-02-25'
 category: 'hotels'
 city: 'pattaya'

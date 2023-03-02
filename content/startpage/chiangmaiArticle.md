@@ -8,7 +8,7 @@ image: '/chiangmai.jpg'
 
 # Chiang mai
 
-![Picture of Chiang mai {{ w: 600, h: 300 }}](/chiangmai.jpg)
+![Picture of Chiang mai {{ w: 600, h: 500 }}](/chiangmai.jpg)
 
 Chiang Mai is like a serene painting, crafted with delicate brushstrokes of ancient temples, misty mountains, and bustling markets. The city is a harmonious blend of modernity and tradition, where old wooden houses and shiny skyscrapers coexist peacefully.
 

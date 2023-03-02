@@ -25,13 +25,13 @@ export default function Home({posts, articles}) {
     }
   return (
     <div className="w-full max-w-7xl">
-      <div className="md:flex pt-2">
+      <div className="mb-10 rounded-l">
         {posts.map((post, index) => {
           return (
-          <div className="" key={index}>
+          <div className="flex object-contain hover:scale-105 mx-10 even:bg-slate-800 odd:justify-end odd:text-left" key={index}>
             <Link href={post.frontmatter.category + '/' + post.slug}>
-                <Image src={post.frontmatter.image} width={300} height={100} loading="eager" alt="Article Image" className="pb-1 px-1 guide-image max-h-32" />
-                <h3 className="text-l font-bold underline p-1">{post.frontmatter.title}</h3>
+                  <h3 className="p-4">{post.frontmatter.title}</h3>
+                <Image src={post.frontmatter.image} width={600} height={400} loading="eager" alt="Article Image" className="pb guide-image min-h-full rounded-md pb-10" />
             </Link>
           </div>
           )
@@ -45,11 +45,11 @@ export default function Home({posts, articles}) {
             <Link href={'/articles/' + post.slug}>
             <h3 className="text-2xl font-extrabold p-1 hover:underline">{post.frontmatter.title}</h3>
             </Link>
-            <p className="text-sm p-1">{post.frontmatter.date}</p>
             <div className="flex" key={index}>
               <img src={post.frontmatter.image} alt="Article Image" className="p-1" height="200" width="200"/>
               <div className="h-24">
                 <p className="line-clamp-3">{post.content}</p>
+                <p className="text-sm p-1">Written: {post.frontmatter.date}</p>
               </div>
             </div>
           </div>

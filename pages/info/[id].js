@@ -8,8 +8,8 @@ import { marked } from 'marked'
 export default function article( {frontmatter, id, content, paths}) {
 
     return (
-        <div className="md:grid md:grid-cols-4 w-full max-w-7xl">
-        <article className="prose prose-stone pl-6 " dangerouslySetInnerHTML={{ __html: marked(content)}}>
+        <div className="w-full max-w-7xl flex justify-center pt-10">
+        <article className="prose prose-stone pl-6 w-76" dangerouslySetInnerHTML={{ __html: marked(content)}}>
 
         </article>
         </div>

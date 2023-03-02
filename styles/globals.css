@@ -2,3 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+h1 {
+    font-family: 'MedievalSharp', cursive;
+    font-family: 'Merriweather', serif;
+
+}

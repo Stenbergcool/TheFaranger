@@ -1,5 +1,5 @@
 ---
-title: 'top 10 resturants in pattaya'
+title: 'Top 10 resturants in pattaya'
 date: '2023-02-25'
 category: 'nightlife'
 city: 'pattaya'
