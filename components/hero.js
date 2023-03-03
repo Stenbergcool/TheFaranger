@@ -5,8 +5,8 @@ import { useSpring, animated } from '@react-spring/web'
 
 export default function Hero(){
   const springs = useSpring({
-    from: { x: -10000 },
-    to: { x: 0 },
+    from: { y: -200 },
+    to: { y: 0 },
     config: {mass:4, tension:100, friction:40}
   })
   return (

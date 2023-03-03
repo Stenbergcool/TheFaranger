@@ -3,8 +3,19 @@ import path from 'path';
 import matter from 'gray-matter';
 import Link from 'next/link';
 import Image from 'next/image'
+import { useSpring, useScroll, animated } from '@react-spring/web'
 
 export default function Home({posts, articles}) {
+  const springsEven = useSpring({
+    from: { x: -1000 },
+    to: { x: 0 },
+    config: {mass:4, tension:100, friction:40}
+  })
+  const springsOdd = useSpring({
+    from: { x: 1000 },
+    to: { x: 0 },
+    config: {mass:4, tension:100, friction:40}
+  })
 
     function imageReducer(x) {
       let guideImage = document.getElementsByClassName("guide-image")
@@ -23,16 +34,25 @@ export default function Home({posts, articles}) {
     imageReducer(x)
     x.addListener(imageReducer)
     }
+
   return (
     <div className="w-full max-w-7xl">
       <div className="mb-10 rounded-l">
         {posts.map((post, index) => {
+          let decider
+          if(index % 2 == 0) {
+            decider = springsEven
+          } else {
+          decider = springsOdd
+          }
           return (
-          <div className="flex object-contain hover:scale-105 mx-10 even:bg-slate-800 odd:justify-end odd:text-left" key={index}>
-            <Link href={post.frontmatter.category + '/' + post.slug}>
-                  <h3 className="p-4">{post.frontmatter.title}</h3>
-                <Image src={post.frontmatter.image} width={600} height={400} loading="eager" alt="Article Image" className="pb guide-image min-h-full rounded-md pb-10" />
-            </Link>
+          <div className="flex object-contain mx-10 even:bg-slate-800 odd:justify-end odd:text-left" key={index}>
+            <animated.div style={{...decider,}} >
+              <Link href={post.frontmatter.category + '/' + post.slug}>
+                    <h3 className="p-4">{post.frontmatter.title}</h3>
+                  <Image src={post.frontmatter.image} width={600} height={400} loading="eager" alt="Article Image" className="pb hover:scale-105 guide-image min-h-full rounded-md pb-20" />
+              </Link>
+            </animated.div>
           </div>
           )
         })}
