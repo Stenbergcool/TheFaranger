@@ -11,10 +11,21 @@ export default function Home({posts, articles}) {
     to: { x: 0 },
     config: {mass:4, tension:100, friction:40}
   })
-  const springsOdd = useSpring({
-    from: { x: 1000 },
-    to: { x: 0 },
-    config: {mass:4, tension:100, friction:40}
+  const [springsOdd, springsOddApi] = useSpring(() => ({
+    x: 10000
+  }))
+
+  const { scrollYProgress } = useScroll({
+    onChange: ({ value: { scrollYProgress } }) => {
+      if (scrollYProgress > 0.1) {
+        springsOddApi.start({ x: 0 })
+      } else {
+        springsOddApi.start({ x: 2000})
+      }
+    },
+    default: {
+      immediate: true,
+    },
   })
 
     function imageReducer(x) {
@@ -46,10 +57,12 @@ export default function Home({posts, articles}) {
           decider = springsOdd
           }
           return (
-          <div className="flex object-contain mx-10 even:bg-slate-800 odd:justify-end odd:text-left" key={index}>
+          <div className="flex object-contain m-10 p-10 even:bg-slate-800 odd:justify-end odd:text-left even:text-white" key={index}>
             <animated.div style={{...decider,}} >
               <Link href={post.frontmatter.category + '/' + post.slug}>
-                    <h3 className="p-4">{post.frontmatter.title}</h3>
+                <div>
+                  <h3 className="p-4">{post.frontmatter.title}</h3>
+                  </div>
                   <Image src={post.frontmatter.image} width={600} height={400} loading="eager" alt="Article Image" className="pb hover:scale-105 guide-image min-h-full rounded-md pb-20" />
               </Link>
             </animated.div>
