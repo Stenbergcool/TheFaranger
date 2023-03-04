@@ -3,30 +3,31 @@ import path from 'path';
 import matter from 'gray-matter';
 import Link from 'next/link';
 import Image from 'next/image'
-import { useSpring, useScroll, animated } from '@react-spring/web'
+import { useState } from "react";
+import { useSpring, animated } from '@react-spring/web'
+import { Waypoint } from "react-waypoint";
+
+const FadeIn = ({ children }) => {
+  const [inView, setInview] = useState(false);
+
+  const transition = useSpring({
+    delay: 700,
+    to: {
+      x: !inView ? 24 : 0,
+      opacity: !inView ? 0 : 1,
+    },
+  });
+  return (
+    <Waypoint onEnter={() => setInview(true)}>
+      <animated.div style={transition}>
+        {children}
+      </animated.div>
+    </Waypoint>
+  );
+};
+
 
 export default function Home({posts, articles}) {
-  const springsEven = useSpring({
-    from: { x: -1000 },
-    to: { x: 0 },
-    config: {mass:4, tension:100, friction:40}
-  })
-  const [springsOdd, springsOddApi] = useSpring(() => ({
-    x: 10000
-  }))
-
-  const { scrollYProgress } = useScroll({
-    onChange: ({ value: { scrollYProgress } }) => {
-      if (scrollYProgress > 0.1) {
-        springsOddApi.start({ x: 0 })
-      } else {
-        springsOddApi.start({ x: 2000})
-      }
-    },
-    default: {
-      immediate: true,
-    },
-  })
 
     function imageReducer(x) {
       let guideImage = document.getElementsByClassName("guide-image")
@@ -47,28 +48,36 @@ export default function Home({posts, articles}) {
     }
 
   return (
-    <div className="w-full max-w-7xl">
+    <div className="w-full">
       <div className="mb-10 rounded-l">
         {posts.map((post, index) => {
-          let decider
           if(index % 2 == 0) {
-            decider = springsEven
-          } else {
-          decider = springsOdd
-          }
           return (
-          <div className="flex object-contain m-10 p-10 even:bg-slate-800 odd:justify-end odd:text-left even:text-white" key={index}>
-            <animated.div style={{...decider,}} >
+          <div className="flex object-contain my-10 py-10 even:bg-slate-800 odd:text-left even:text-white rounded-md justify-center" key={index}>
               <Link href={post.frontmatter.category + '/' + post.slug}>
-                <div>
-                  <h3 className="p-4">{post.frontmatter.title}</h3>
-                  </div>
-                  <Image src={post.frontmatter.image} width={600} height={400} loading="eager" alt="Article Image" className="pb hover:scale-105 guide-image min-h-full rounded-md pb-20" />
+                <div className="grid grid-cols-2">
+                  <h3 className="p-4 text-2xl font-extrabold">{post.frontmatter.title}</h3>
+                  <FadeIn>
+                  <Image src={post.frontmatter.image} width={600} height={400} loading="eager" alt="Article Image" className=" hover:scale-105 guide-image min-h-full rounded-md" />
+                  </FadeIn>
+                </div>
               </Link>
-            </animated.div>
           </div>
-          )
-        })}
+          )}
+          return (
+            <div className="flex object-contain my-10 py-10 even:bg-slate-200 odd:justify-end odd:text-left rounded-md justify-center" key={index}>
+                <Link href={post.frontmatter.category + '/' + post.slug}>
+                  <div className="grid grid-cols-2">
+                  <FadeIn>
+                    <Image src={post.frontmatter.image} width={600} height={400} loading="eager" alt="Article Image" className=" hover:scale-105 guide-image min-h-full rounded-md" />
+                  </FadeIn>
+                    <h3 className="p-4 text-2xl font-extrabold">{post.frontmatter.title}</h3>
+                  </div>
+                </Link>
+            </div>
+            )
+        })
+      }
       </div>
       <div className="grid grid-cols-4">
       <div className="p-4 col-span-3">
