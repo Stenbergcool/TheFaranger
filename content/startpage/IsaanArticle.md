@@ -3,7 +3,7 @@ title: 'Isaan guide'
 date: '2023-02-25'
 category: 'city'
 city: 'Isaan'
-image: '/pattaya.jpg'
+image: '/isaanLong.jpg'
 ---
 
 # Pattaya

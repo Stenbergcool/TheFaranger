@@ -6,6 +6,7 @@ import Image from 'next/image'
 import { useState } from "react";
 import { useSpring, animated } from '@react-spring/web'
 import { Waypoint } from "react-waypoint";
+import { marked } from "marked";
 
 const FadeIn = ({ children }) => {
   const [inView, setInview] = useState(false);
@@ -49,34 +50,21 @@ export default function Home({posts, articles}) {
 
   return (
     <div className="w-full">
-      <div className="mb-10 rounded-l">
+      <div className="grid grid-cols-3 rounded-l max-w-7xl m-auto">
         {posts.map((post, index) => {
-          if(index % 2 == 0) {
           return (
-          <div className="flex object-contain my-10 py-10 even:bg-slate-800 odd:text-left even:text-white rounded-md justify-center" key={index}>
+          <div className="object-contain m-2 justify-center p-2" key={index}>
               <Link href={post.frontmatter.category + '/' + post.slug}>
-                <div className="grid grid-cols-2">
-                  <h3 className="p-4 text-2xl font-extrabold">{post.frontmatter.title}</h3>
-                  <FadeIn>
-                  <Image src={post.frontmatter.image} width={600} height={400} loading="eager" alt="Article Image" className=" hover:scale-105 guide-image min-h-full rounded-md" />
-                  </FadeIn>
-                </div>
+                  <div className="relative hover:scale-105">
+                    <FadeIn>
+                    <Image src={post.frontmatter.image} width={600} height={800} loading="eager" alt="Article Image" className=" guide-image min-h-full pb-2" />
+
+                    <h3 className=" absolute top-2 p-4 text-4xl font-extrabold text-amber-200 ">{post.frontmatter.title}</h3>
+                    </FadeIn>
+                  </div>
               </Link>
           </div>
-          )}
-          return (
-            <div className="flex object-contain my-10 py-10 even:bg-slate-200 odd:justify-end odd:text-left rounded-md justify-center" key={index}>
-                <Link href={post.frontmatter.category + '/' + post.slug}>
-                  <div className="grid grid-cols-2">
-                  <FadeIn>
-                    <Image src={post.frontmatter.image} width={600} height={400} loading="eager" alt="Article Image" className=" hover:scale-105 guide-image min-h-full rounded-md" />
-                  </FadeIn>
-                    <h3 className="p-4 text-2xl font-extrabold">{post.frontmatter.title}</h3>
-                  </div>
-                </Link>
-            </div>
-            )
-        })
+        )})
       }
       </div>
       <div className="grid grid-cols-4">
@@ -118,10 +106,11 @@ export async function getStaticProps(){
       path.join('content/startpage', filename),
       'utf-8'
     )
-    const { data: frontmatter } = matter(markdownWithMeta)
+    const { data: frontmatter, content } = matter(markdownWithMeta)
     return {
       slug,
-      frontmatter
+      frontmatter,
+      content
     }
   })
   const articles = articleFiles.map((filename) => {

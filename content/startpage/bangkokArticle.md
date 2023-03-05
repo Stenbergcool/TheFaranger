@@ -3,7 +3,7 @@ title: 'Bangkok guide'
 date: '2023-02-25'
 category: 'city'
 city: 'bangkok'
-image: '/bangkok.jpg'
+image: '/bangkokLong.jpg'
 ---
 
 # Bangkok

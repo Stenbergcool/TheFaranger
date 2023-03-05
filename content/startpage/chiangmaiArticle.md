@@ -3,7 +3,7 @@ title: 'Chiang mai guide'
 date: '2023-02-25'
 category: 'city'
 city: 'chiangmai'
-image: '/chiangmai.jpg'
+image: '/chiangmaiLong.jpg'
 ---
 
 # Chiang mai

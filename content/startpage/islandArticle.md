@@ -3,7 +3,7 @@ title: 'Island guide'
 date: '2023-02-25'
 category: 'city'
 city: 'island'
-image: '/islands.jpg'
+image: '/islandsLong.jpg'
 ---
 
 # Islands of Thailand

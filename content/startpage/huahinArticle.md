@@ -3,7 +3,7 @@ title: 'Hua hin guide'
 date: '2023-02-25'
 category: 'city'
 city: 'huahin'
-image: '/huahin.jpg'
+image: '/pattayaLong.jpg'
 ---
 
 # Hua Hin
