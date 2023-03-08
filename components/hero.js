@@ -17,7 +17,7 @@ export default function Hero(){
           ...springs,
         }}
       >
-        <h1 className='text-9xl font-extrabold text-slate-800 translate-y-4'>THE FARANGER</h1>
+        <h1 className='lg:text-9xl md:text-5-xl text-4xl font-extrabold text-slate-800 translate-y-4'>THE FARANGER</h1>
         </animated.div>
     </div>
     </div>

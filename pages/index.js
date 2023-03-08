@@ -30,36 +30,18 @@ const FadeIn = ({ children }) => {
 
 export default function Home({posts, articles}) {
 
-    function imageReducer(x) {
-      let guideImage = document.getElementsByClassName("guide-image")
-      if (x.matches) {
-        for(let items of guideImage){
-          items.classList.add("hidden")
-        }
-      } else {
-        for(let items of guideImage){
-          items.classList.remove("hidden")
-        }
-      }
-    }
-    if (typeof window !== "undefined") {
-    let x = window.matchMedia("(max-width: 760px)")
-    imageReducer(x)
-    x.addListener(imageReducer)
-    }
-
   return (
     <div className="w-full">
-      <div className="grid grid-cols-3 rounded-l max-w-7xl m-auto">
+      <div className="md:grid md:grid-cols-3 rounded-l max-w-7xl m-auto">
         {posts.map((post, index) => {
           return (
           <div className="object-contain m-2 justify-center p-2" key={index}>
               <Link href={post.frontmatter.category + '/' + post.slug}>
-                  <div className="relative hover:scale-105">
+                  <div className="relative hover:scale-105 text-center">
                     <FadeIn>
                     <Image src={post.frontmatter.image} width={600} height={800} loading="eager" alt="Article Image" className=" guide-image min-h-full pb-2" />
 
-                    <h3 className=" absolute top-2 p-4 text-4xl font-extrabold text-amber-200 ">{post.frontmatter.title}</h3>
+                    <h3 className=" absolute top-2 p-4 text-2xl md:text-5xl font-extrabold text-amber-200 ">{post.frontmatter.title}</h3>
                     </FadeIn>
                   </div>
               </Link>
@@ -67,8 +49,9 @@ export default function Home({posts, articles}) {
         )})
       }
       </div>
-      <div className="grid grid-cols-4">
+      <div className="grid grid-cols-4 max-w-7xl m-auto">
       <div className="p-4 col-span-3">
+        <h1 className="text-2xl font-extrabold underline"> Latest articles</h1>
       {articles.map((post, index) => {
           return (
           <div key={index} className="">
