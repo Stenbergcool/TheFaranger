@@ -32,7 +32,7 @@ export default function Home({posts, articles}) {
 
   return (
     <div className="w-full">
-      <div className="md:grid md:grid-cols-3 rounded-l max-w-7xl m-auto">
+      <div className="md:grid md:grid-cols-3 grid rounded-l max-w-7xl m-auto mb-20">
         {posts.map((post, index) => {
           return (
           <div className="object-contain m-2 justify-center p-2" key={index}>
@@ -58,7 +58,7 @@ export default function Home({posts, articles}) {
             <Link href={'/articles/' + post.slug}>
             <h3 className="text-2xl font-extrabold p-1 hover:underline">{post.frontmatter.title}</h3>
             </Link>
-            <div className="flex" key={index}>
+            <div className="md:flex" key={index}>
               <img src={post.frontmatter.image} alt="Article Image" className="p-1" height="200" width="200"/>
               <div className="h-24">
                 <p className="line-clamp-3">{post.content}</p>

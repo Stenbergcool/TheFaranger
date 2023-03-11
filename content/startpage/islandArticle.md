@@ -4,6 +4,7 @@ date: '2023-02-25'
 category: 'city'
 city: 'island'
 image: '/islandsLong.jpg'
+meta: 'Thailand Islands Guide'
 ---
 
 # Islands of Thailand

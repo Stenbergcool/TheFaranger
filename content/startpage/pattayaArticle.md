@@ -4,6 +4,7 @@ date: '2023-02-25'
 category: 'city'
 city: 'pattaya'
 image: '/pattayaLong.jpg'
+meta: 'Pattaya Guide'
 ---
 
 # Pattaya

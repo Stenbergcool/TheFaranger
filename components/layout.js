@@ -16,7 +16,7 @@ export default function Layout({ children }) {
         </Head>
         <Hero/>
         <Navbar/>
-        <main className="flex justify-center min-h-screen">
+        <main className="md:flex justify-center min-h-screen w-full">
             <div className=" w-full">
         {children}
         </div>

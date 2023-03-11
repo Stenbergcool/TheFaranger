@@ -10,14 +10,14 @@ export default function Hero(){
     config: {mass:4, tension:100, friction:40}
   })
   return (
-    <div className="flex justify-center bg-amber-200">
-    <div className="flex justify-center h-24 md:h-56 max-w-7xl w-full items-center bg-amber-200">
+    <div className="md:flex justify-center bg-amber-200">
+    <div className="md:flex justify-center h-24 md:h-56 max-w-7xl w-full items-center bg-amber-200">
       <animated.div
         style={{
           ...springs,
         }}
       >
-        <h1 className='lg:text-9xl md:text-5-xl text-4xl font-extrabold text-slate-800 translate-y-4'>THE FARANGER</h1>
+        <h1 className='lg:text-8xl md:text-7xl text-4xl font-extrabold text-slate-800 translate-y-4'>THE FARANGER</h1>
         </animated.div>
     </div>
     </div>

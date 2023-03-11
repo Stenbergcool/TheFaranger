@@ -4,6 +4,7 @@ date: '2023-02-25'
 category: 'city'
 city: 'chiangmai'
 image: '/chiangmaiLong.jpg'
+meta: 'Chiang mai Guide'
 ---
 
 # Chiang mai

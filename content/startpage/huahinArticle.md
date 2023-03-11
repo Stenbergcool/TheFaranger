@@ -4,6 +4,7 @@ date: '2023-02-25'
 category: 'city'
 city: 'huahin'
 image: '/pattayaLong.jpg'
+meta: 'Hua Hin Guide'
 ---
 
 # Hua Hin

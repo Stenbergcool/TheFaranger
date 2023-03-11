@@ -4,6 +4,7 @@ date: '2023-02-25'
 category: 'city'
 city: 'Isaan'
 image: '/isaanLong.jpg'
+meta: 'Isaan Guide'
 ---
 
 # Pattaya
