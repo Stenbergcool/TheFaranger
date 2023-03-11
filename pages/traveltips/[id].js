@@ -53,7 +53,6 @@ export async function getStaticProps({params: {id}}) {
           frontmatter
         }
       })
-    console.log(paths)
     const {data: frontmatter, content} = matter(markdownWithMeta)
     paths = paths.filter(e => {
       return e.frontmatter.category == frontmatter.category
