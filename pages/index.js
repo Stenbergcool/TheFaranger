@@ -61,7 +61,7 @@ export default function Home({posts, articles}) {
             <div className="md:flex" key={index}>
               <img src={post.frontmatter.image} alt="Article Image" className="p-1" height="200" width="200"/>
               <div className="h-24">
-                <p className="line-clamp-3">{post.content}</p>
+                <p className="line-clamp-3" dangerouslySetInnerHTML={{ __html: marked(post.content)}}></p>
                 <p className="text-sm p-1">Written: {post.frontmatter.date}</p>
               </div>
             </div>
