@@ -9,8 +9,6 @@ meta: 'Thailand Islands Guide'
 
 # Islands of Thailand
 
-![Picture of Island {{ w: 600, h: 300 }}](/islands.jpg)
-
 ## Phuket
 
 Phuket in Thailand is a destination that caters to everyone's preferences. For those who crave the lively scene, there are long stretches of beaches, bustling markets, nightclubs, and shopping centers, alongside an endless variety of restaurants. But for those seeking tranquility, there are peaceful havens filled with the chirping of birds and humble eateries serving authentic Thai cuisine. The selection of accommodations on Phuket is also varied, ranging from resorts with a range of activities to simple bungalows
